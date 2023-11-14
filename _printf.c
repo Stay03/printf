@@ -3,7 +3,7 @@
 /**
  * _printf - Produces output according to a format
  * @format: The format string
- * 
+ *
  * Return: The number of characters printed
  */
 int _printf(const char *format, ...)
@@ -29,6 +29,11 @@ int _printf(const char *format, ...)
                     break;
                 case 's':
                     function = print_string;
+                    count += function(args);
+                    break;
+                case 'd':
+                case 'i':
+                    function = print_integer;
                     count += function(args);
                     break;
                 case '%':
