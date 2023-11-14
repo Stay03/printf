@@ -44,3 +44,38 @@ int print_percent()
 {
     return (write(1, "%", 1));
 }
+
+/**
+ * print_binary - prints an unsigned int in binary
+ * @arg: unsigned int to print
+ *
+ * Return: number of characters printed
+ */
+int print_binary(va_list arg)
+{
+    unsigned int n;
+    unsigned int mask;
+    int count;
+
+    n = va_arg(arg, unsigned int);
+    mask = 1 << (sizeof(n) * 8 - 1);
+    count = 0;
+
+    while (mask)
+    {
+        if (n & mask)
+        {
+            _putchar('1');
+            count++;
+        }
+        else
+        {
+            _putchar('0');
+            count++;
+        }
+
+        mask >>= 1;
+    }
+
+    return (count);
+}

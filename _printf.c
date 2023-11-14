@@ -39,6 +39,10 @@ int _printf(const char *format, ...)
                 case '%':
                     count += print_percent();
                     break;
+		case 'b':
+	            function = print_binary;
+        	    count += function(args);
+           	    break;
                 default:
                     write(1, format - 1, 2);
                     count += 2;

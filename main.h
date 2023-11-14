@@ -10,5 +10,6 @@ int print_string(va_list arg);
 int print_percent();
 int _putchar(char c);
 int print_integer(va_list args);
+int print_binary(va_list arg);
 
 #endif /* MAIN_H */
